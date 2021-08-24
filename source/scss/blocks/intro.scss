@@ -94,6 +94,10 @@
   font-size: 2.4rem;
   line-height: 1.27;
 
+  .screen.active & {
+    @include fadeIn(up)
+  }
+
   @media (min-width: $stop-scaling) {
     width: 509px;
     font-size: 24px;

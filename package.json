@@ -40,7 +40,8 @@
     "build": "webpack",
     "webp": "gulp webp",
     "sprite": "gulp sprite",
-    "start": "webpack-dev-server --open"
+    "start": "webpack-dev-server --open",
+    "dev": "npm run watch & npm run start"
   },
   "browserslist": [
     "last 2 versions",

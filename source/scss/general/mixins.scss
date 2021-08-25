@@ -71,8 +71,6 @@
   } @else {
     animation: FadeIn $duration $timing-function;
   }
-
-
 }
 
 @mixin square($size, $radius: 0) {

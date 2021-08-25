@@ -58,3 +58,29 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+@mixin fadeIn($direction: false, $duration: 0.5s, $timing-function: ease-in-out) {
+  @if $direction == down {
+    animation: FadeIn $duration $timing-function, TranslateDown $duration $timing-function;
+  } @else if $direction == left {
+    animation: FadeIn $duration $timing-function, TranslateLeft $duration $timing-function;
+  } @else if $direction == right {
+    animation: FadeIn $duration $timing-function, TranslateRight $duration $timing-function;
+  } @else if $direction == up {
+    animation: FadeIn $duration $timing-function, TranslateUp $duration $timing-function;
+  } @else {
+    animation: FadeIn $duration $timing-function;
+  }
+
+
+}
+
+@mixin square($size, $radius: 0) {
+  width: $size;
+  height: $size;
+
+  @if $radius != 0 {
+    border-radius: $radius;
+  }
+}
+

@@ -36,10 +36,12 @@
     "editorconfig": "editorconfig-cli",
     "stylelint": "stylelint \"source/sass/**/*.scss\" --syntax scss",
     "test": "npm run editorconfig && npm run stylelint && eslint source/js/",
+    "watch": "webpack --watch",
     "build": "webpack",
     "webp": "gulp webp",
     "sprite": "gulp sprite",
-    "start": "webpack-dev-server --open"
+    "start": "webpack-dev-server --open",
+    "dev": "npm run watch & npm run start"
   },
   "browserslist": [
     "last 2 versions",

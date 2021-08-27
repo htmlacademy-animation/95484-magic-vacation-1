@@ -2265,8 +2265,8 @@ img {
   background-color: #ffffff;
   display: block;
   opacity: 0;
-  left: 0;
-  transition: width 0.3s;
+  right: 0;
+  transition: width 0.3s, opacity 0.3s;
 }
 @media (max-width: 1024px) and (orientation: portrait) {
   .page-header__menu a::after {
@@ -2283,14 +2283,18 @@ img {
   }
 }
 .page-header__menu a.active::after {
-  opacity: 1;
+  right: auto;
+  left: 0;
   width: 100%;
+  opacity: 1;
 }
 .page-header__menu a:hover, .page-header__menu a:focus {
   color: #a67ee5;
   outline: none;
 }
 .page-header__menu a:hover::after, .page-header__menu a:focus::after {
+  right: auto;
+  left: 0;
   opacity: 1;
   width: 100%;
   background-color: #a67ee5;

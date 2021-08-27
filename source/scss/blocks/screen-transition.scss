@@ -1,0 +1,16 @@
+.screen-transition {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  pointer-events: none;
+
+  background: $c-dark;
+  z-index: 2;
+
+  &.active {
+    top: 0;
+    transition: 0.25s ease-in-out;
+  }
+}

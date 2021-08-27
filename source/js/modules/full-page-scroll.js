@@ -1,4 +1,5 @@
 import throttle from 'lodash/throttle';
+import playStoryScreenTransition from './play-story-screen-transition';
 
 export default class FullPageScroll {
   constructor() {
@@ -33,7 +34,8 @@ export default class FullPageScroll {
     this.changePageDisplay();
   }
 
-  changePageDisplay() {
+  async changePageDisplay() {
+    await playStoryScreenTransition();
     this.changeVisibilityDisplay();
     this.changeActiveMenuItem();
     this.emitChangeDisplayEvent();

@@ -93,21 +93,24 @@ $rules-count: 4;
 .rules__list {
   @include list-reset;
   counter-reset: li;
-  column-count: 2;
-  column-gap: 9.6rem;
   margin: auto;
   padding-top: 7rem;
   max-width: 69.6rem;
 
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  grid-column-gap: 9.6rem;
+
   @media (min-width: $stop-scaling) {
-    column-gap: 96px;
+    grid-column-gap: 96px;
     padding-top: 70px;
     max-width: 696px;
   }
 
   @media (max-width: $tablet) and (orientation: portrait) {
-    column-count: auto;
-    column-gap: 0;
+    display: list-item;
     padding: 0 2.5rem;
   }
 
@@ -116,7 +119,7 @@ $rules-count: 4;
   }
 
   @media (max-width: $mobile) and (orientation: landscape) {
-    column-gap: 4rem;
+    grid-column-gap: 4rem;
   }
 }
 
@@ -154,7 +157,7 @@ $rules-count: 4;
       }
 
       & > p {
-        animation-delay: #{($i) * $animation-duration};
+        animation-delay: #{($i) * $animation-duration - $animation-duration/2};
       }
     }
   }

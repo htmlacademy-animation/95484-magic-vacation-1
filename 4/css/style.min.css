@@ -3098,23 +3098,25 @@ img {
   margin: 0;
   list-style: none;
   counter-reset: li;
-  column-count: 2;
-  column-gap: 9.6rem;
   margin: auto;
   padding-top: 7rem;
   max-width: 69.6rem;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  grid-column-gap: 9.6rem;
 }
 @media (min-width: 2000px) {
   .rules__list {
-    column-gap: 96px;
+    grid-column-gap: 96px;
     padding-top: 70px;
     max-width: 696px;
   }
 }
 @media (max-width: 1024px) and (orientation: portrait) {
   .rules__list {
-    column-count: auto;
-    column-gap: 0;
+    display: list-item;
     padding: 0 2.5rem;
   }
 }
@@ -3125,7 +3127,7 @@ img {
 }
 @media (max-width: 768px) and (orientation: landscape) {
   .rules__list {
-    column-gap: 4rem;
+    grid-column-gap: 4rem;
   }
 }
 
@@ -3164,25 +3166,25 @@ img {
   animation-delay: 0s;
 }
 .rules__item:nth-child(1) > p {
-  animation-delay: 0.3s;
+  animation-delay: 0.15s;
 }
 .rules__item:nth-child(2)::before {
   animation-delay: 0.3s;
 }
 .rules__item:nth-child(2) > p {
-  animation-delay: 0.6s;
+  animation-delay: 0.45s;
 }
 .rules__item:nth-child(3)::before {
   animation-delay: 0.6s;
 }
 .rules__item:nth-child(3) > p {
-  animation-delay: 0.9s;
+  animation-delay: 0.75s;
 }
 .rules__item:nth-child(4)::before {
   animation-delay: 0.9s;
 }
 .rules__item:nth-child(4) > p {
-  animation-delay: 1.2s;
+  animation-delay: 1.05s;
 }
 .rules__item::before {
   content: counter(li);

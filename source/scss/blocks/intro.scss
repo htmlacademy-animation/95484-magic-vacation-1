@@ -93,9 +93,12 @@
   text-transform: uppercase;
   font-size: 2.4rem;
   line-height: 1.27;
+  animation-fill-mode: both;
+  @include fadeIn(up);
+  animation-play-state: paused;
 
-  .screen.active & {
-    @include fadeIn(up)
+  &.active {
+    animation-play-state: running;
   }
 
   @media (min-width: $stop-scaling) {
@@ -146,6 +149,14 @@
   font-size: 2.4rem;
   line-height: 1.2;
 
+  animation-fill-mode: both;
+  @include fadeIn();
+  animation-play-state: paused;
+
+  &.active {
+    animation-play-state: running;
+  }
+
   @media (min-width: $stop-scaling) {
     margin: 0 0 16px;
     width: 250px;
@@ -165,4 +176,92 @@
     margin: 0 0 0 -5px;
     font-size: 48px;
   }
+}
+
+
+.intro__word {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  padding-top: 100%;
+  margin-top: -100%;
+  margin-right: 5px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  flex-shrink: 0;
+
+
+  $delay: 0.1s;
+
+  &:first-child > .intro__letter {
+      &:nth-child(1) {
+        transition-delay: $delay * 3;
+      }
+      &:nth-child(2),
+      &:nth-child(4),
+      &:nth-child(6){
+        transition-delay: $delay;
+      }
+
+      &:nth-child(5) {
+        transition-delay: $delay * 2;
+      }
+
+      &:nth-child(8) {
+        transition-delay: $delay * 4;
+      }
+
+      &:nth-child(9) {
+        transition-delay: $delay;
+      }
+
+      &:nth-child(11) {
+        transition-delay: $delay;
+      }
+    }
+  &:nth-child(2) > .intro__letter {
+    &:nth-child(1) {
+      transition-delay: $delay * 7;
+    }
+
+    &:nth-child(2) {
+      transition-delay: $delay * 8;
+    }
+
+    &:nth-child(3) {
+      transition-delay: $delay * 6;
+    }
+
+    &:nth-child(4) {
+      transition-delay: $delay * 4;
+    }
+
+    &:nth-child(5) {
+      transition-delay: $delay * 7;
+    }
+
+    &:nth-child(6) {
+      transition-delay: $delay * 5;
+    }
+  }
+}
+
+.intro__letter {
+  flex-shrink: 0;
+  display: inline-block;
+  transform: translate3d(0, calc(100% + 2rem), 0);
+
+  @for $i from 0 to 20 {
+    &:nth-child(#{$i}) {
+      transition-delay: calc(#{$i % 4} * 0.1s);
+    }
+  }
+
+  .intro__title.active & {
+    transform: translate3d(0, 0, 0);
+  }
+
 }

@@ -9,6 +9,7 @@ import form from './modules/form.js';
 import social from './modules/social.js';
 import FullPageScroll from './modules/full-page-scroll';
 import onPageLoad from './modules/on-page-load';
+import onScreenChange from "./modules/onScreenChange";
 
 // init modules
 onPageLoad();
@@ -21,5 +22,9 @@ result();
 form();
 social();
 
+
 const fullPageScroll = new FullPageScroll();
 fullPageScroll.init();
+
+onScreenChange();
+

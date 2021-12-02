@@ -1,0 +1,30 @@
+.accent {
+
+}
+
+.accent__word {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  padding-top: 100%;
+  margin-top: -100%;
+  margin-right: 5px;
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.accent__letter {
+  flex-shrink: 0;
+  display: inline-block;
+  transform: translate3d(0, calc(100% + 2rem), 0);
+  @for $i from 0 to 20 {
+    &:nth-child(#{$i}) {
+      transition-delay: calc(#{$i % 4} * 0.1s);
+    }
+  }
+
+  .accent.active & {
+    transform: translate3d(0, 0, 0);
+  }
+}
